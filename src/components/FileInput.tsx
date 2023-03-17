@@ -1,4 +1,6 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, useState } from "react";
+
+import { handleChangeFilename } from "../libs/ChangeFilename";
 
 function FileInput() {
   const [filename, setFilename] = useState("");
@@ -37,6 +39,10 @@ function FileInput() {
         accept="audio/mp3,audio/*;capture=microphone"
         onChange={handleChange}
       />
+
+      <button>
+        change name
+      </button>
     </label>
   );
 }

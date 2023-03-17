@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import FileInput from './components/FileInput'
 
 function App() {
