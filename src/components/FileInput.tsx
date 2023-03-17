@@ -1,6 +1,18 @@
-import React from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 
 function FileInput() {
+  const [filename, setFilename] = useState("");
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    if (
+      !(event.target instanceof HTMLInputElement) ||
+      (event.target as HTMLInputElement).files?.length == 0
+    )
+      return;
+    const files = (event.target as HTMLInputElement).files || [];
+    console.log(files, files[0].size);
+  };
+
   return (
     <label htmlFor="uploadAudio">
       <div className="uploadAudio_button">
@@ -19,7 +31,12 @@ function FileInput() {
         </svg>
         <span>Click to upload</span>
       </div>
-      <input type="file" />
+      <input
+        type="file"
+        id="uploadAudio"
+        accept="audio/mp3,audio/*;capture=microphone"
+        onChange={handleChange}
+      />
     </label>
   );
 }
