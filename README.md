@@ -1,17 +1,22 @@
 # audio-renamer
-Get audio and set filename based on title and artist audio file. bassed on React(typescript) and ID3 library
+Get audio and set filename with title and artist audio file. bassed on React(typescript) and ID3 library.
+<br>
 
-### Why is project created?
+### 📸 Screenshot
+the screenshot of project
+the link of demo
+
+### 🤔 Why is project created? 
 you may download some audio file and the name wrote with any character.
 it possible that you miss the file.
 
-### The tools that used on the project
+### 💻 The tools that used on the project
 - ReactJs
 - SASS
 - Vite (bootstraper) 
 - ID3. the library for access to any property of file
 
-### How to run the project?
+### 👀 How to run the project?
 First, open terminal and write the below command:
 ```bash
 git clone https://github.com/nafasebra/audio-renamer
