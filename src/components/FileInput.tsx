@@ -1,19 +1,32 @@
 import { ChangeEvent, useState } from "react";
-
 import { handleChangeFilename } from "../libs/ChangeFilename";
+
 
 function FileInput() {
   const [filename, setFilename] = useState("");
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    if (
-      !(event.target instanceof HTMLInputElement) ||
-      (event.target as HTMLInputElement).files?.length == 0
-    )
-      return;
-    const files = (event.target as HTMLInputElement).files || [];
-    console.log(files, files[0].size);
+    if(event.target.files === null) return;
+    const file = event.target.files[0];
+    let reader = new FileReader();
+    reader.onload = () => {
+      let arr = new Uint8Array(reader.result);
+      let binaryString = String.fromCharCode.apply(null, arr);
+      handleChangeFilename(binaryString);
+    }
+    reader.onerror = (err) => {
+      console.error(err)
+    }
+    reader.readAsArrayBuffer(file)
+    // if (
+    //   !(event.target instanceof HTMLInputElement) ||
+    //   (event.target as HTMLInputElement).files?.length == 0
+    // )
+    //   return;
+    // const files = (event.target as HTMLInputElement).files || [];
+    // console.log(files, files[0]);
   };
+
 
   return (
     <label htmlFor="uploadAudio">
@@ -36,13 +49,9 @@ function FileInput() {
       <input
         type="file"
         id="uploadAudio"
-        accept="audio/mp3,audio/*;capture=microphone"
+        accept="audio/*"
         onChange={handleChange}
       />
-
-      <button>
-        change name
-      </button>
     </label>
   );
 }
