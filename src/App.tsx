@@ -1,4 +1,5 @@
 import FileInput from './components/FileInput'
+import MusicBox from './components/MusicBox'
 
 function App() {
   return (
@@ -9,7 +10,8 @@ function App() {
       <p>
         Upload a audio, change name by us 🙌
       </p>
-      <FileInput />
+      <MusicBox />
+      {/* <FileInput /> */}
     </div>
   )
 }
