@@ -3,6 +3,8 @@ import { createContext, Dispatch, useState } from "react";
 // state type
 type StateType = {
   fileUploaded: boolean;
+  filename: string;
+  fileArray: any | any[];
 };
 
 // context types
