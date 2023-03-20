@@ -11,6 +11,9 @@ function App() {
         <p>
           Upload a audio, change name by us 🙌
         </p>
+        <a href='https://github.com/nafasebra/audio-renamer' target="_blank">
+          See the repository :)
+        </a>
         <Container />
       </div>
     </AppProvider>
