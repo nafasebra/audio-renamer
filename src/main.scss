@@ -81,3 +81,27 @@ input[type="file"] {
     }
   }
 }
+
+.flex_column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.button {
+  appearance: none;
+  -webkit-appearance: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid $primary_color;
+  background-color: $primary_color;
+  color: white;
+  border-radius: 1rem;
+  font-weight: 800;
+  transition: all 350ms;
+  &:hover {
+    background-color: transparent;
+    color: $primary_color;
+  }
+}
