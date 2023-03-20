@@ -1,6 +1,4 @@
-import FileInput from './components/FileInput'
-import MusicBox from './components/MusicBox'
-
+import Container from './components/Container'
 import { AppProvider } from './context/AppContext'
 
 function App() {
@@ -13,8 +11,7 @@ function App() {
         <p>
           Upload a audio, change name by us 🙌
         </p>
-        <MusicBox />
-        {/* <FileInput /> */}
+        <Container />
       </div>
     </AppProvider>
   )
