@@ -1,10 +1,13 @@
-import React from 'react'
+import { useContext } from 'react'
+import { AppContext } from '../context/AppContext';
+
 import MusicBox from './MusicBox'
+import { handleRenameFile } from '../utils';
 
 function ReadyToChange() {
-  
+  const { state } = useContext(AppContext);
   const handleClickButton = () => {
-    console.log('changed...');
+    handleRenameFile(state.fileArray, state.tags.title, state.tags.artist);
   }
 
   return (

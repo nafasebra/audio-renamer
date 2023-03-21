@@ -24,5 +24,5 @@ export function getTagFromFile(file: any) {
 
 export function handleRenameFile(file: any, title: string, artist: string) {
   const fileType = getFileType(file.name);
-  // const renamedFile = new File([filePath], `${tags.title} | ${tags.artist}.${fileType}`, {type: fileType})
+  const renamedFile = new File([file], `${title} - ${artist}.${fileType}`, {type: fileType})
 }
