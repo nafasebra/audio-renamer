@@ -3,7 +3,10 @@ import { createContext, Dispatch, useState } from "react";
 // state type
 type StateType = {
   fileUploaded: boolean;
-  filename: string;
+  tags: {
+    title: string;
+    artist: string;
+  }
   fileArray: any | any[];
 };
 

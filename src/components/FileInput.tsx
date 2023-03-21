@@ -1,16 +1,18 @@
-import { ChangeEvent, useState } from "react";
-import { handleChangeFilename } from "../libs/ChangeFilename";
-
+import { ChangeEvent, useContext } from "react";
+import { AppContext } from "../context/AppContext";
 
 function FileInput() {
-  const [filename, setFilename] = useState("");
+  const { state, dispatch } = useContext(AppContext);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     if(event.target.files === null) return;
     const file = event.target.files[0];
-    handleChangeFilename(file);
+    dispatch({
+      ...state,
+      fileUploaded: true,
+      fileArray: file,
+    });
   };
-
 
   return (
     <label htmlFor="uploadAudio">

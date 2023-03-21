@@ -27,7 +27,10 @@ svg {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 2rem;
+  & * {
+    margin: 0;
+  }
 }
 
 input[type="file"] {
@@ -93,15 +96,17 @@ input[type="file"] {
   -webkit-appearance: none;
   display: flex;
   align-items: center;
+  justify-content: center;;
   gap: 1rem;
+  padding: 0.75rem 1.5rem;
   border: 1px solid $primary_color;
   background-color: $primary_color;
   color: white;
   border-radius: 1rem;
   font-weight: 800;
   transition: all 350ms;
+  cursor: pointer;
   &:hover {
-    background-color: transparent;
-    color: $primary_color;
+    opacity: 0.5;
   }
 }
