@@ -5,12 +5,23 @@ function getFileType (path: string) {
   return arr[arr.length - 1]
 }
 
-export function handleChangeFilename(filePath: any) {
-  const fileType = getFileType(filePath.name);
-  id3.fromFile(filePath)
-      .then((tags: any) => {
-        console.log(tags)
-        // const renamedFile = new File([filePath], `${tags.title} | ${tags.artist}.${fileType}`, {type: fileType})
+export function getTagFromFile(file: any) {
+  let title: string = "", 
+      artist: string = ""
+  id3.fromFile(file)
+      .then((tags) => {
+        title = tags?.title || "";
+        artist = tags?.artist || "";
       })
-      .catch((err) => console.error(err))
+      .catch((error) => {
+        console.log(error);
+        return false;
+      })
+
+  return [ title, artist ];
+}
+
+export function handleRenameFile(file: any, title: string, artist: string) {
+  const fileType = getFileType(file.name);
+  // const renamedFile = new File([filePath], `${tags.title} | ${tags.artist}.${fileType}`, {type: fileType})
 }
