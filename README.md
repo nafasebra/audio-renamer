@@ -1,5 +1,5 @@
 # audio-renamer
-Get audio and set filename with title and artist audio file. bassed on React(typescript) and ID3 library.
+This app Gets audio and sets filename with title and artist audio file. bassed on React(typescript) and ID3 library.
 <br>
 
 ### 📸 Screenshot
@@ -14,7 +14,7 @@ it possible that you miss the file.
 - ReactJs
 - SASS
 - Vite (bootstraper) 
-- ID3. the library for access to any property of file
+- ID3. the library to access any property of file
 
 ### 👀 How to run the project?
 First, open terminal and write the below command:
@@ -26,4 +26,7 @@ Then, run `npm install` or `yarn` for install packages of the project.
 And run `npm run dev` or `yarn dev` for start project.
 <br/>
 enjoy ✌ 
+
+
+Created by nafasebra with ❤ :)))
 
