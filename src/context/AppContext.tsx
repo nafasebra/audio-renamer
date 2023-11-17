@@ -21,7 +21,7 @@ export const AppContext = createContext({} as ContextType);
 
 // define provider
 type PropType = {
-  children: JSX.Element | JSX.Element[];
+  children: React.ReactNode | React.ReactNode[];
 };
 
 export const AppProvider = ({ children }: PropType) => {

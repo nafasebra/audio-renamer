@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "babel-plugin-preval": "^5.1.0",
     "id3js": "^2.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
