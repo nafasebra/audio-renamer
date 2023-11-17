@@ -21,9 +21,7 @@ First, open terminal and write the below command:
 ```bash
 git clone https://github.com/nafasebra/audio-renamer
 ``` 
-Then, run `npm install` or `yarn` for install packages of the project.
-<br />
-And run `npm run dev` or `yarn dev` for start project.
+Then, run `npm install` or `yarn` for install packages of the project. Then run `npm run dev` or `yarn dev` for start project.
 <br/>
 enjoy ✌ 
 
