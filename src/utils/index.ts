@@ -5,21 +5,21 @@ function getFileType(path: string) {
   return arr[arr.length - 1];
 }
 
-export function getTagFromFile(file: any) {
-  let title: string = "",
-    artist: string = "";
-  id3
+export async function getTagFromFile(file: any) {
+  let title: string = "";
+  let artist: string = "";
+
+  return id3
     .fromFile(file)
     .then((tags) => {
       title = tags?.title || "";
       artist = tags?.artist || "";
+      return [title, artist];
     })
     .catch((error) => {
       console.log(error);
-      return false;
+      return [title, artist];
     });
-
-  return [title, artist];
 }
 
 export function handleRenameFile(file: any, title: string, artist: string) {

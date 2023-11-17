@@ -8,17 +8,18 @@ function FileInput() {
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.files === null) return;
-
+  
     const file = event.target.files[0];
-    const [title, artist] = getTagFromFile(file);
-    dispatch({
-      ...state,
-      fileUploaded: true,
-      fileArray: file,
-      tags: {
-        title,
-        artist,
-      },
+    getTagFromFile(file).then((value) => {
+      dispatch({
+        ...state,
+        fileUploaded: true,
+        fileArray: file,
+        tags: {
+          title: value[0],
+          artist: value[1],
+        },
+      });
     });
   };
 
