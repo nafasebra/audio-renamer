@@ -1,8 +1,8 @@
 import { useContext } from 'react'
-import { AppContext, useAppContext } from '../context/AppContext';
+import { AppContext, useAppContext } from '@/context/AppContext';
 
 import MusicBox from './MusicBox'
-import { handleRenameFile } from '../utils';
+import { handleRenameFile } from '@/utils';
 
 function ReadyToChange() {
   const { state } = useAppContext();

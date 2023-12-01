@@ -1,7 +1,7 @@
-import { ChangeEvent, useContext } from "react";
-import { AppContext, useAppContext } from "../context/AppContext";
+import { ChangeEvent } from "react";
+import { useAppContext } from "@/context/AppContext";
 
-import { getTagFromFile } from "../utils";
+import { getTagFromFile } from "@/utils";
 
 function FileInput() {
   const { state, handleUpdate } = useAppContext();

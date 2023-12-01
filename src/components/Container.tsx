@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { AppContext } from "../context/AppContext";
+import { AppContext } from "@/context/AppContext";
 
-import FileInput from "./FileInput";
-import ReadyToChange from "./ReadyToChange";
+import FileInput from "@/components/FileInput";
+import ReadyToChange from "@/components/ReadyToChange";
 
 function Container() {
   const { state } = useContext(AppContext);

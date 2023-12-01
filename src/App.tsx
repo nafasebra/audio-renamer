@@ -1,5 +1,5 @@
-import Container from './components/Container'
-import { AppProvider } from './context/AppContext'
+import Container from '@/components/Container'
+import { AppProvider } from '@/context/AppContext'
 
 function App() {
   return (

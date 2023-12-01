@@ -1,5 +1,3 @@
-import React from "react";
-
 interface PropType {
   title?: string;
   artist?: string;
