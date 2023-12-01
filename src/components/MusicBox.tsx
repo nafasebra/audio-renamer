@@ -7,6 +7,7 @@ interface PropType {
 
 function MusicBox(props: PropType) {
   const { artist, title } = props;
+  
   return (
     <div className="music_box">
       <div className="music_box__cover">

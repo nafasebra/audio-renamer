@@ -1,17 +1,17 @@
 import { ChangeEvent, useContext } from "react";
-import { AppContext } from "../context/AppContext";
+import { AppContext, useAppContext } from "../context/AppContext";
 
 import { getTagFromFile } from "../utils";
 
 function FileInput() {
-  const { state, dispatch } = useContext(AppContext);
+  const { state, handleUpdate } = useAppContext();
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.files === null) return;
   
     const file = event.target.files[0];
     getTagFromFile(file).then((value) => {
-      dispatch({
+      handleUpdate({
         ...state,
         fileUploaded: true,
         fileArray: file,

@@ -1,17 +1,16 @@
 import { useContext } from 'react'
-import { AppContext } from '../context/AppContext';
+import { AppContext, useAppContext } from '../context/AppContext';
 
 import MusicBox from './MusicBox'
 import { handleRenameFile } from '../utils';
 
 function ReadyToChange() {
-  const { state } = useContext(AppContext);
+  const { state } = useAppContext();
+
   const handleClickButton = () => {
     const fileVar = handleRenameFile(state.fileArray, state.tags.title, state.tags.artist);
     console.log(fileVar);
   }
-
-  console.log(state);
 
   return (
     <div className="flex_column">
