@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { AppContext, useAppContext } from '@/context/AppContext';
 
-import MusicBox from './MusicBox'
+import MusicBox from './ui/MusicBox'
 import { handleRenameFile } from '@/utils';
 
 function ReadyToChange() {
