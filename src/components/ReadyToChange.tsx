@@ -2,7 +2,7 @@ import { useAppContext } from "@/context/AppContext";
 import { handleRenameFile } from "@/utils";
 import { RecursiveIcon } from "@/assets/icons";
 import MusicBox from "@/components/ui/MusicBox";
-import Button from "./ui/Button";
+import Button from "@/components/ui/Button";
 
 function ReadyToChange() {
   const { state } = useAppContext();
@@ -19,7 +19,7 @@ function ReadyToChange() {
   return (
     <div className="flex flex-col items-center justify-center gap-4">
       <MusicBox title={state.tags.title} artist={state.tags.artist} />
-      <Button variant="solid" color="primary" attr={{onClick: handleClickButton}}>
+      <Button variant="solid" color="primary" handlers={{onClick: () => handleClickButton()}}>
         <RecursiveIcon />
         <span> Rename this </span>
       </Button>

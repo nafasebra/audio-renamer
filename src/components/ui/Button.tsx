@@ -1,4 +1,4 @@
-import React, { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
+import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, FC } from "react";
 
 interface BaseProps {
   color: "primary" | "dark";
@@ -10,13 +10,15 @@ interface BaseProps {
 interface ButtonProps extends BaseProps {
   link?: never;
   type?: 'button' | 'submit' | 'reset';
-  attr: ButtonHTMLAttributes<HTMLButtonElement>;
+  attr?: ButtonHTMLAttributes<HTMLButtonElement>;
+  handlers?: Record<string, () => void>;
 }
 
 interface AnchorProps extends BaseProps {
-  link?: string;
+  link: string;
   type?: 'button' | 'submit' | 'reset';
-  attr: AnchorHTMLAttributes<HTMLAnchorElement>;
+  attr?: AnchorHTMLAttributes<HTMLAnchorElement>;
+  handlers?: Record<string, () => void>;
 }
 
 const theme = {
@@ -30,27 +32,32 @@ const theme = {
   },
 }
 
-function Button(props: ButtonProps | AnchorProps) {
-  const { children, variant, tag = "button", color, type = "button", attr, link, ...rest } = props;
+const Button: FC<ButtonProps | AnchorProps> = (props) => {
+  const { children, variant, tag = "button", color, type = "button", attr, link, handlers = {}, ...rest } = props;
   
   const commonProps = {
-    className: `py-2 px-4 flex items-center justify-center rounded-lg gap-3 border ${theme[color][variant]} transition-all`
+    className: `py-2 px-4 flex items-center justify-center rounded-lg gap-3 border ${theme[color][variant]} transition-all`,
+    ...rest
   }
 
-  if(tag === "button") {
+  const eventHandlers = {
+    ...(handlers || {}),
+    onClick: handlers?.onClick || undefined,
+  };
+
+  if (tag === "button") {
     return (
-      <button type={type} {...commonProps} {...rest}>
+      <button type={type} {...commonProps} {...eventHandlers}>
         {children}
       </button>
     );
   } else {
     return (
-      <a href={link} {...commonProps} {...rest}>
+      <a href={link} {...commonProps} {...eventHandlers}>
         {children}
       </a>
     );
   }
-
 }
 
 export default Button;
