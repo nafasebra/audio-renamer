@@ -1,5 +1,6 @@
 import GithubIcon from "@/assets/icons/github";
 import React from "react";
+import Button from "../ui/Button";
 
 function Navbar() {
   return (
@@ -8,14 +9,16 @@ function Navbar() {
         <h1 className="font-bold text-2xl">Audio Renamer</h1>
         <p className="text-sm">Upload a audio, change name by us 🙌</p>
       </div>
-      <a
-        href="https://github.com/nafasebra/audio-renamer"
-        className="py-2 px-4 flex items-center gap-3 border border-black rounded-lg hover:bg-black hover:text-white transition-colors"
-        target="_blank"
+      <Button
+        link="https://github.com/nafasebra/audio-renamer"
+        variant="outline"
+        color="dark"
+        tag="a"
+        attr={{ target: "_blank" }}
       >
         <GithubIcon />
         <span>See the repository</span>
-      </a>
+      </Button>
     </nav>
   );
 }
