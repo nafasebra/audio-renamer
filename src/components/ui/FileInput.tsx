@@ -2,6 +2,7 @@ import { ChangeEvent } from "react";
 import { useAppContext } from "@/context/AppContext";
 
 import { getTagFromFile } from "@/utils";
+import Button from "@/components/ui/Button";
 
 function FileInput() {
   const { state, handleUpdate } = useAppContext();
@@ -25,23 +26,10 @@ function FileInput() {
 
   return (
     <label htmlFor="uploadAudio">
-      <div className="uploadAudio_button">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          className="w-6 h-6"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"
-          />
-        </svg>
+      <Button color="primary" variant="solid">
+        
         <span>Click to upload</span>
-      </div>
+      </Button>
       <input
         type="file"
         id="uploadAudio"
