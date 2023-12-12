@@ -2,7 +2,7 @@ import { ChangeEvent } from "react";
 import { useAppContext } from "@/context/AppContext";
 
 import { getTagFromFile } from "@/utils";
-import Button from "@/components/ui/Button";
+import { UploadIcon } from "@/assets/icons";
 
 function FileInput() {
   const { state, handleUpdate } = useAppContext();
@@ -26,10 +26,10 @@ function FileInput() {
 
   return (
     <label htmlFor="uploadAudio">
-      <Button color="primary" variant="solid">
-        
+      <div className="uploadAudio_button">
+        <UploadIcon />
         <span>Click to upload</span>
-      </Button>
+      </div>
       <input
         type="file"
         id="uploadAudio"

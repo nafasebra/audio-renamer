@@ -1,4 +1,5 @@
 import * as id3 from "id3js";
+import * as fs from 'fs'
 
 function getFileType(path: string) {
   const arr = path.split(".");

@@ -33,7 +33,7 @@ $primary_color: #e74c3c;
   .music_box {
     @apply flex items-center gap-4 bg-white rounded-lg shadow-md shadow-gray-200/50 max-w-[350px] w-full py-3 px-4;
     & .music_box__cover {
-      @apply flex place-content-center rounded-lg bg-gray-200 text-gray-600 w-7 h-7;
+      @apply flex items-center justify-center rounded-lg bg-gray-200 text-gray-600 w-14 h-14;
     }
     & .music_box__text {
       @apply flex flex-col w-[calc(100%-3.5rem-1rem)] basis-[calc(100%-3.5rem-1rem)] gap-2;
