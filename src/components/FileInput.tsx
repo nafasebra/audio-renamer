@@ -9,10 +9,10 @@ function FileInput() {
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.files === null) return;
-  
+
     const file = event.target.files[0];
-    
-    setFile(file)
+
+    setFile(file);
     getTagFromFile(file).then((value: any) => {
       handleUpdate({
         ...state,
@@ -20,25 +20,28 @@ function FileInput() {
         fileArray: file,
         tags: {
           title: value[0] || "",
-          artist: value[1] || "",  
+          artist: value[1] || "",
         },
       });
     });
   };
 
   return (
-    <label htmlFor="uploadAudio">
-      <div className="uploadAudio_button">
-        <UploadIcon />
-        <span>Click to upload</span>
-      </div>
-      <input
-        type="file"
-        id="uploadAudio"
-        accept=".mp3,.m4a,.mp4,.aac,.ogg,.flac,.wav,.wma,.aiff,.aif"
-        onChange={handleChange}
-      />
-    </label>
+    <div className="flex flex-col gap-5 items-center justify-center">
+      <h1 className="font-bold text-xl">Upload your audio</h1>
+      <label htmlFor="uploadAudio">
+        <div className="uploadAudio_button">
+          <UploadIcon />
+          <span>Click to upload</span>
+        </div>
+        <input
+          type="file"
+          id="uploadAudio"
+          accept=".mp3,.m4a,.mp4,.aac,.ogg,.flac,.wav,.wma,.aiff,.aif"
+          onChange={handleChange}
+        />
+      </label>
+    </div>
   );
 }
 
