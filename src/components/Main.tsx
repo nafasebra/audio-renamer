@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AppContext } from "@/context/AppContext";
 
-import FileInput from "@/components/ui/FileInput";
+import FileInput from "@/components/FileInput";
 import ReadyToChange from "@/components/ReadyToChange";
 
 function Main() {

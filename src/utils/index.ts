@@ -1,5 +1,4 @@
-import * as id3 from "id3js";
-import * as fs from 'fs'
+import * as mm from 'music-metadata';
 
 function getFileType(path: string) {
   const arr = path.split(".");
@@ -10,17 +9,30 @@ export async function getTagFromFile(file: any) {
   let title: string = "";
   let artist: string = "";
 
-  return id3
-    .fromFile(file)
-    .then((tags) => {
-      title = tags?.title || "";
-      artist = tags?.artist || "";
-      return [title, artist];
-    })
-    .catch((error) => {
-      console.log(error);
-      return [title, artist];
-    });
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+
+    reader.onload = async (e) => {
+      try {
+        const arrayBuffer = e.target?.result as ArrayBuffer;
+        const uint8Array = new Uint8Array(arrayBuffer);
+
+        const metadata = await mm.parseBuffer(uint8Array, file.type);
+        title = metadata.common.title || "Unknown Title";
+        artist = metadata.common.artist || "Unknown Artist";
+        resolve([title, artist]);
+      } catch (error) {
+        console.error("Error extracting metadata:", error);
+        resolve([title, artist]);
+      }
+    };
+
+    reader.onerror = (error) => {
+      console.error("File reading error:", error);
+      resolve([title, artist]);
+    };
+    reader.readAsArrayBuffer(file);
+  });
 }
 
 export function handleRenameFile(file: any, title: string, artist: string) {

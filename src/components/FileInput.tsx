@@ -5,22 +5,22 @@ import { getTagFromFile } from "@/utils";
 import { UploadIcon } from "@/assets/icons";
 
 function FileInput() {
-  const { state, handleUpdate } = useAppContext();
+  const { state, handleUpdate, setFile } = useAppContext();
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.files === null) return;
   
     const file = event.target.files[0];
     
-    console.log(file.name);
-    getTagFromFile(file).then((value) => {
+    setFile(file)
+    getTagFromFile(file).then((value: any) => {
       handleUpdate({
         ...state,
         fileUploaded: true,
         fileArray: file,
         tags: {
-          title: value[0],
-          artist: value[1],
+          title: value[0] || "",
+          artist: value[1] || "",  
         },
       });
     });
@@ -35,7 +35,7 @@ function FileInput() {
       <input
         type="file"
         id="uploadAudio"
-        accept="audio/*"
+        accept=".mp3,.m4a,.mp4,.aac,.ogg,.flac,.wav,.wma,.aiff,.aif"
         onChange={handleChange}
       />
     </label>
