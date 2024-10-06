@@ -8,13 +8,15 @@ interface StateType {
     artist: string;
   };
   fileArray: any | any[];
-};
+}
 
 // context types
 interface ContextType {
   state: StateType;
   handleUpdate: Dispatch<StateType>;
-};
+  file: any;
+  setFile: (value: any) => void;
+}
 
 // define context
 export const AppContext = createContext({} as ContextType);
@@ -22,7 +24,7 @@ export const AppContext = createContext({} as ContextType);
 // define provider
 interface PropType {
   children: React.ReactNode | React.ReactNode[];
-};
+}
 
 export const useAppContext = () => {
   const currentValue = useContext(AppContext);
@@ -34,18 +36,17 @@ export const useAppContext = () => {
 
 export const AppProvider = ({ children }: PropType) => {
   const [state, dispatch] = useState({} as StateType);
+  const [file, setFile] = useState<any>(null);
 
   const handleUpdate = (newData: StateType) => {
     try {
       dispatch(newData);
     } catch (error: any) {
-      throw new Error("Error updating data: " + error.message);
+      console.error("Error updating data: " + error.message)
     }
   };
 
-  const currentValue = { state, handleUpdate };
-
   return (
-    <AppContext.Provider value={currentValue}>{children}</AppContext.Provider>
+    <AppContext.Provider value={{state, handleUpdate, file, setFile}}>{children}</AppContext.Provider>
   );
 };

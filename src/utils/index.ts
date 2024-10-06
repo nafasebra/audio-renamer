@@ -36,3 +36,7 @@ export function handleRenameFile(file: any, title: string, artist: string) {
     return blobFile;
   }
 }
+
+export function changeAudioFile(path: string) {
+  
+}
